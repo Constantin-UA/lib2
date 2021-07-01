@@ -21,8 +21,10 @@ $('button').on('click', () => {
 	$('div').eq(3).toggleClass('active').log();
 }); */
 
-$('div').click(function () {
+/* $('div').click(function () {
 	console.log($(this).index());
-});
+}); */
 
-console.log($('section').find('.active'));
+//console.log($('section').find('.active'));
+//console.log($('div').closest('.findme'));
+console.log($('.findme').siblings());
