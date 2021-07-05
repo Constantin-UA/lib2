@@ -9,7 +9,7 @@ $.prototype.getAttrValue = function (attrName) {
 			return this;
 		}
 		if (this[i].getAttribute(attrName)) {
-			console.log('Value', this[i].getAttribute(attrName));
+			return this[i].getAttribute(attrName);
 		}
 	}
 

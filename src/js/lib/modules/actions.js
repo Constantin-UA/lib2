@@ -32,8 +32,12 @@ $.prototype.html = function (content) {
 }; */
 
 $.prototype.log = function () {
-	for (let i = 0; i < this.length; i++) {
-		console.log(this[i]);
+	if (!this.length) {
+		console.log(this);
+	} else {
+		for (let i = 0; i < this.length; i++) {
+			console.log(this[i]);
+		}
 	}
 	return this;
 };
@@ -54,7 +58,6 @@ $.prototype.eq = function (i) {
 $.prototype.index = function () {
 	const parent = this[0].parentNode;
 	const childs = [...parent.children];
-
 	const findMyIndex = (item) => {
 		return item == this[0];
 	};
@@ -139,4 +142,8 @@ $.prototype.siblings = function () {
 	}
 
 	return this;
+};
+
+$.prototype.lengthNum = function () {
+	return this.length;
 };
