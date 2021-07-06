@@ -171,46 +171,13 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.html = function (content
 
   return this;
 };
-/* $.prototype.eq = function (i) {
-	let arr = {};
-	for (let j = 0; j < this.length; j++) {
-		if (j == i) {
-			arr = this[j];
-			return arr;
-		}
-	}
-	return this;
-}; */
-
-/* $.prototype.eq = function (i) {
-	if (i) {
-		let arr = {};
-		arr = this[i];
-		this.length = 1;
-		return arr;
-	}
-	return this;
-}; */
-
-
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.log = function () {
-  if (!this.length) {
-    console.log(this);
-  } else {
-    for (let i = 0; i < this.length; i++) {
-      console.log(this[i]);
-    }
-  }
-
-  return this;
-};
 
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.eq = function (i) {
   const swap = this[i];
   const objLength = Object.keys(this).length;
 
-  for (let i = 0; i < objLength; i++) {
-    delete this[i];
+  for (let j = 0; j < objLength; j++) {
+    delete this[j];
   }
 
   this[0] = swap;
@@ -257,63 +224,6 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.find = function (selecto
   }
 
   return this;
-};
-
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.closest = function (selector) {
-  if (!selector) {
-    return this;
-  }
-
-  let counter = 0;
-
-  for (let i = 0; i < this.length; i++) {
-    if (this[i].closest(selector)) {
-      this[i] = this[i].closest(selector);
-      counter++;
-    }
-  }
-
-  const objLength = Object.keys(this).length;
-
-  for (; counter < objLength; counter++) {
-    delete this[counter];
-  }
-
-  return this;
-};
-
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.siblings = function () {
-  let numberOfItems = 0;
-  let counter = 0;
-  const copyObj = Object.assign({}, this);
-
-  for (let i = 0; i < copyObj.length; i++) {
-    const arr = copyObj[i].parentNode.children;
-
-    for (let j = 0; j < arr.length; j++) {
-      if (copyObj[i] === arr[j]) {
-        continue;
-      }
-
-      this[counter] = arr[j];
-      counter++;
-    }
-
-    numberOfItems += arr.length - 1;
-  }
-
-  this.length = numberOfItems;
-  const objLength = Object.keys(this).length;
-
-  for (; numberOfItems < objLength; numberOfItems++) {
-    delete this[numberOfItems];
-  }
-
-  return this;
-};
-
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.lengthNum = function () {
-  return this.length;
 };
 
 /***/ }),
@@ -689,13 +599,17 @@ $('button').on('click', () => {
 //$('.findme').fadeOut(1800);
 
 Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('#first').click(() => {
-  Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.block-center').eq(0).fadeIn(1000);
+  Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.block-center').eq(0).fadeToggle(1000);
 });
 Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-count="second"]').click(() => {
-  Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.block-center').eq(0).fadeOut(1000);
+  Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.block-center').eq(1).fadeToggle(1000);
 });
 Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('button').eq(2).click(() => {
   Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.block-center').fadeToggle(1000);
+}); //console.log($('div').index());
+
+Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.clickme').click(() => {
+  Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.findme').eq(1).find('.more').fadeToggle(800);
 });
 
 /***/ })
