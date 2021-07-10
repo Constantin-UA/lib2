@@ -55,5 +55,6 @@ $.prototype.hasAttribute = function (attrName) {
 			console.log(this[i], true);
 		}
 	}
+	console.log('not now');
 	return this;
 };
