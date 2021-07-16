@@ -357,6 +357,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.hasAttribute = function 
     }
   }
 
+  console.log('not now');
   return this;
 };
 
@@ -489,7 +490,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.animateOverTime = functi
     if (timeElapsed < dur) {
       requestAnimationFrame(_animateOverTime);
     } else {
-      if (typeof fin === 'function') {
+      if (typeof fin == 'function') {
         fin();
       }
     }
@@ -498,9 +499,9 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.animateOverTime = functi
   return _animateOverTime;
 };
 
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeIn = function (dur, display, fin) {
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeIn = function (dur, display = '', fin) {
   for (let i = 0; i < this.length; i++) {
-    this[i].style.display = display || 'block';
+    this[i].style.display = display;
 
     const _fadeIn = complection => {
       this[i].style.opacity = complection;
@@ -530,10 +531,10 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeOut = function (dur,
   return this;
 };
 
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeToggle = function (dur, display, fin) {
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeToggle = function (dur, display = '', fin) {
   for (let i = 0; i < this.length; i++) {
     if (window.getComputedStyle(this[i]).display === 'none') {
-      this[i].style.display = display || 'block';
+      this[i].style.display = display;
 
       const _fadeIn = complection => {
         this[i].style.opacity = complection;
@@ -662,8 +663,7 @@ Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('button').eq(2).click((
 
 Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.clickme').click(() => {
   Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.findme').eq(1).find('.more').fadeToggle(800);
-});
-console.log(Object(_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.findme').eq(0).siblings());
+}); //console.log($('.findme').eq(1).find('.more'));
 
 /***/ })
 

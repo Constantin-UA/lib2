@@ -47,4 +47,4 @@ $('.clickme').click(() => {
 	$('.findme').eq(1).find('.more').fadeToggle(800);
 });
 
-console.log($('.findme').eq(0).siblings());
+//console.log($('.findme').eq(1).find('.more'));
